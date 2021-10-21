@@ -1,0 +1,25 @@
+{
+  "name": "e2e-solution",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jasmine": "^3.9.0",
+    "protractor-html-reporter-2": "^1.0.4",
+    "ts-node": "^10.2.1",
+    "webdriver-manager": "^12.1.8"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^3.9.1",
+    "@types/node": "^16.10.3",
+    "jasmine-spec-reporter": "^7.0.0",
+    "protractor": "^7.0.0",
+    "protractor-jasmine2-html-reporter": "0.0.7",
+    "typescript": "^4.4.3"
+  },
+  "description": ""
+}
