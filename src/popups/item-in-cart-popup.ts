@@ -1,6 +1,6 @@
 import {by, element} from "protractor";
 
-export class ItemInCart {
+export class ItemInCartPopup {
 
     get itemTitle() {
         return element(by.xpath("//*[@id=\"layer_cart_product_title\"]"));

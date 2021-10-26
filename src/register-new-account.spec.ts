@@ -8,7 +8,7 @@ const mainPage = new MainPage();
 const accountDetailsPage = new AccountDetailsPage();
 const registerForm = new RegisterForm();
 const myAccount = new MyAccount();
-describe('Create', () => {
+xdescribe('Create', () => {
     beforeAll(async() => {
         await browser.get('http://automationpractice.com/');
     });
