@@ -3,6 +3,7 @@ import { AccountDetailsPage } from "./page-object/account-details-page";
 import { MainPage } from "./page-object/main-page";
 import {RegisterForm} from "./page-object/register-form";
 import {MyAccount} from "./page-object/my-account";
+import {timeouts} from "./common/constants";
 
 const mainPage = new MainPage();
 const accountDetailsPage = new AccountDetailsPage();
@@ -20,7 +21,7 @@ xdescribe('Create', () => {
         await mainPage.signInButton.click();
         await accountDetailsPage.emailAddressRegisterInput.sendKeys('yaroslav.golik@gmail6.com');
         await accountDetailsPage.submitButton.click();
-        await browser.wait(ExpectedConditions.visibilityOf(registerForm.firstNamefieldPI),10000);
+        await browser.wait(ExpectedConditions.visibilityOf(registerForm.firstNamefieldPI), timeouts.STANDARD);
         await registerForm.firstNamefieldPI.sendKeys("Yaroslav");
         await registerForm.lastNamefieldPI.sendKeys("Holik");
         await registerForm.passwordfieldPI.sendKeys("HeyBro123");

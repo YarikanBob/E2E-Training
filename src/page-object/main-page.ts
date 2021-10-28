@@ -21,6 +21,6 @@ export class MainPage {
         return element(by.xpath("(//ul[@id='homefeatured']/li)[1]//img"));
     }
     get openCart() {
-        return element(by.xpath("//*[@title=\"View my shopping cart\"]"));
+        return element(by.xpath("//*[@class=\"shopping_cart\"]/a"));
     }
 }

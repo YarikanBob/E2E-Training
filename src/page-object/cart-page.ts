@@ -1,6 +1,6 @@
 import { by, element } from "protractor";
 
-export class Cart {
+export class CartPage {
     get numberOfItems() {
         return element.all(by.xpath("//tr[contains(@class,'cart_item')]")).count();
     }
