@@ -17,4 +17,10 @@ export class MainPage {
     get resultProductTitles() {
         return element.all(by.css("div.product-container a.product-name"));
     }
+    get firstImage() {
+        return element(by.xpath("(//ul[@id='homefeatured']/li)[1]//img"));
+    }
+    get openCart() {
+        return element(by.xpath("//*[@class=\"shopping_cart\"]/a"));
+    }
 }
