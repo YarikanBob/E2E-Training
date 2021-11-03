@@ -23,4 +23,12 @@ export class MainPage {
     get openCart() {
         return element(by.xpath("//*[@class=\"shopping_cart\"]/a"));
     }
+    async changeCategory(searchExpression: string){
+        await browser.element(by.xpath("//a[@title='"+searchExpression+"']")).click();
+    }
+    async changeSubcategory(searchExpression: string) {
+        await browser.element(by.xpath("//*[contains(@class,'subcategory-name') and text()='"+searchExpression+"']")).click();
+    }
+
+
 }
