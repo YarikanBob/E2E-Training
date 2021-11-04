@@ -1,6 +1,7 @@
 import {browser, by, element, protractor} from "protractor";
+import {Page} from "./page";
 
-export class WomenPage {
+export class WomenPage extends Page {
     get pageItem() {
         return element(by.css("a[class='product-name']"));
     }
@@ -12,7 +13,8 @@ export class WomenPage {
     }
     async getErrorMessage() {
         return await element(by.css('p[class=\'fancybox-error\']')).getText();
-
-
-
-}}
+    }
+    get errorPopup() {
+        return element(by.css("p[class=\'fancybox-error\']"));
+    }
+}

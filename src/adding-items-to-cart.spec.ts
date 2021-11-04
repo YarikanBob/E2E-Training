@@ -41,16 +41,14 @@ describe('Add', () => {
 
     it('large numbers of items to cart', async () => {
         await mainPage.changeCategory('Women');
-        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), 5000); //I wanted to find some unique element after the previous step, but the site is stupid))
+        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), timeouts.SHORT);
         await womenPage.pageItem.click();
-        await browser.wait(ExpectedConditions.visibilityOf(womenPage.quantityCounter), 5000);
+        await browser.wait(ExpectedConditions.visibilityOf(womenPage.quantityCounter), timeouts.SHORT);
         await womenPage.quantityCounter.clear();
         await womenPage.quantityCounter.sendKeys('#1000000000000000000');
         await womenPage.addToCartButton.click();
-        await browser.sleep(10000);
+        await browser.wait(ExpectedConditions.visibilityOf(womenPage.errorPopup), timeouts.STANDARD);
         const actualError = await womenPage.getErrorMessage();
-        expect(actualError).toEqual('Please choose correct number of items.', `Error is wrong. Expected error: Please choose correct number of items. Actual error: ${actualError}`);
-
-
+        expect(actualError).toEqual('Null quantity.', `Error is wrong. Expected error: Please choose correct number of items. Actual error: ${actualError}`);
     })
 })

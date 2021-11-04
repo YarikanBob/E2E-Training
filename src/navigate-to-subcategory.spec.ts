@@ -1,5 +1,6 @@
 import {browser, by, ExpectedConditions} from "protractor";
 import { MainPage } from "./page-object/main-page";
+import {timeouts} from "./common/constants";
 
 const mainPage = new MainPage();
 describe('Navigate', () => {
@@ -9,9 +10,9 @@ describe('Navigate', () => {
 
     it('to Dresses subcategory from Women page', async () => {
         await mainPage.changeCategory('Women');
-        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), 5000); //I wanted to find some unique element after the previous step, but the site is stupid))
+        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), timeouts.SHORT);
         await mainPage.changeSubcategory('Dresses');
-        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), 5000);
+        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), timeouts.SHORT);
         const resultArray = await mainPage.resultProductTitles.getText();
         for (let i = 0; i < resultArray.length; i++) {
             expect(resultArray[i]).toContain("Dress");
@@ -20,12 +21,12 @@ describe('Navigate', () => {
 
     it('to Tops subcategory from Women page', async () => {
         await mainPage.changeCategory('Women');
-        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), 5000); //I wanted to find some unique element after the previous step, but the site is stupid))
+        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), timeouts.SHORT);
         await mainPage.changeSubcategory('Tops');
-        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), 5000);
+        await browser.wait(ExpectedConditions.visibilityOf(mainPage.searchCounter), timeouts.SHORT);
         const resultArray = await mainPage.resultProductTitles.getText();
         for (let i = 0; i < resultArray.length; i++) {
-            expect(resultArray[i]).toContain("T-shirts"); //how to verify in such case if category contains different types?
+            expect(resultArray[i]).toMatch(/T-shirts|Blouse/);
         }
     })
 

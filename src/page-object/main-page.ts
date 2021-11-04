@@ -1,6 +1,7 @@
 import {browser, by, element, protractor} from "protractor";
+import {Page} from "./page";
 
-export class MainPage {
+export class MainPage extends Page {
     get signInButton() {
         return element(by.css(".header_user_info a.login"));
     }
@@ -29,6 +30,4 @@ export class MainPage {
     async changeSubcategory(searchExpression: string) {
         await browser.element(by.xpath("//*[contains(@class,'subcategory-name') and text()='"+searchExpression+"']")).click();
     }
-
-
 }
